@@ -23,4 +23,9 @@ public class RestaurantController {
     public List<Restaurant> getAll() {
         return repository.findAll();
     }
+
+    @GetMapping("/search")
+    public List<Restaurant> search(@RequestParam String name) {
+        return repository.findByNameContainingIgnoreCase(name);
+    }
 }
